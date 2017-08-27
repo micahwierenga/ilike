@@ -1,0 +1,59 @@
+<div class="toys">
+	<div class="container">
+		<h2>Toys</h2>
+		<div class="row">
+			<table id="toyTable" class="table table-bordered toyTable">
+				<tbody ng-repeat="toy in toys.allToys">
+					<tr>
+						<td colspan="2" class="toyCell grayRow">
+							<h2 class="itemName">
+								<a href="{{toy.toy_url}}" target="_blank">{{toy.name}}</a>
+							</h2>
+							<h3>${{toy.price}}</h3>
+						</td>
+					</tr>
+					<tr>
+						<td class="toyCell">
+							<a href="{{toy.toy_url}}" target="_blank"><img width="200" src="{{toy.image_url}}"></a>
+						</td>
+						<td class="toyCell grayRow buttonTableCell">
+							<table class="grayRow">
+								<tr>
+									<td class="buttonCell">
+										<button class="btn btn-success btn-width"><span class="toyOrder">{{toy.order}}</span></button>
+									</td>
+								</tr>
+								<tr>
+									<td class="buttonCell">
+										<button class="btn btn-primary btn-width" ng-click="toys.moveToyUp( toy )" ng-disabled="{{toy.order}} == 1 ? true : false"><span class="glyphicon glyphicon-triangle-top"></span></button>
+									</td>
+								</tr>
+								<tr>
+									<td class="buttonCell">
+										<button class="btn btn-danger btn-width" ng-click="toys.deleteToy( toy )"><span class="glyphicon glyphicon-remove"></span></button>
+									</td>
+								</tr>
+								<tr>
+									<td class="buttonCell">
+										<button class="btn btn-primary btn-width" ng-click="toys.moveToyDown( toy )" ng-disabled="{{toy.order}} == {{toys.allToys.length}} ? true : false"><span class="glyphicon glyphicon-triangle-bottom"></span></button>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" class="toyCell notesCell grayRow">
+							<strong>Thoughts</strong><br />
+							{{toy.notes}}
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="toySeparatorCell">
+							
+						</td>
+					</tr>
+				</tbody>
+			</table>		
+		</div>
+	</div>
+</div>

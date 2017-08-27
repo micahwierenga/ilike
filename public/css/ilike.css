@@ -1,0 +1,49 @@
+body {
+	background-color:#add8e6;
+}
+.navbar {
+	background-color: #492914;
+}
+.navbar-link {
+	color: #add8e6 !important;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+table {
+	text-align: center;
+	background: #fff;
+	color: #492914;
+	vertical-align: middle;
+    border-collapse: collapse;
+}
+.toyTable, .toyCell {
+	border: 3px solid #add8e6 !important;
+}
+.grayRow {
+	background-color: #c0c0c0;
+	color: #492914;
+}
+.itemName {
+	text-transform: uppercase;
+}
+.buttonTableCell {
+	width: 50px;
+	text-align: center;
+}
+.buttonCell {
+	padding: 5px;
+}
+.toyOrder {
+	font-weight: 800;
+}
+.btn-width {
+	width: 40px;
+}
+.notesCell {
+	text-align: left;
+}
+.toySeparatorCell {
+	background-color: #add8e6;
+}

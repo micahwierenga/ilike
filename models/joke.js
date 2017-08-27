@@ -1,13 +1,11 @@
 module.exports = function( sequelize, Sequelize ) {
-	let model = sequelize.define( 'recipe', {
+	let model = sequelize.define( 'joke', {
 		id: {
 			type: Sequelize.INTEGER,
 			autoIncrement: true,
 			primaryKey: true
 		},
-		name: Sequelize.STRING,
-		image_url: Sequelize.STRING,
-		instructions: Sequelize.STRING,
+		description: Sequelize.STRING,
 		order: Sequelize.INTEGER
 	})
 	return model;
