@@ -23,6 +23,7 @@ function ToyIndexController( $http ) {
 			let toyIndex = vm.allToys.indexOf( deletedToy );
 			vm.allToys.splice( toyIndex, 1 );
 		})
+		getAllToys();
 	}
 
 	getAllToys();

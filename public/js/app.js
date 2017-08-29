@@ -48,25 +48,25 @@ angular.module('iLikeApp', ['ui.router'])
 		.state( 'home.new-game', {
 			url: '/new-game',
 			templateUrl: '/templates/forms/new-game.html',
-			controller: 'GameNewController as newGame'
+			controller: 'GameNewController as createGame'
 		})
 
 		.state( 'home.new-snack', {
 			url: '/new-snack',
 			templateUrl: '/templates/forms/new-snack.html',
-			controller: 'SnackNewController as newSnack'
+			controller: 'SnackNewController as createSnack'
 		})
 
 		.state( 'home.new-recipe', {
 			url: '/new-recipe',
 			templateUrl: '/templates/forms/new-recipe.html',
-			controller: 'RecipeNewController as newRecipe'
+			controller: 'RecipeNewController as createRecipe'
 		})
 
 		.state( 'home.new-joke', {
 			url: '/new-joke',
 			templateUrl: '/templates/forms/new-joke.html',
-			controller: 'JokeNewController as newJoke'
+			controller: 'JokeNewController as createJoke'
 		})
 
 	$urlRouterProvider.otherwise( '/home' );
