@@ -12,7 +12,8 @@
 	crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="/bower_components/angular/angular.min.js"></script>
-	<script src="/bower_components/angular-route/angular-route.min.js"></script>
+	<!-- <script src="/bower_components/angular-route/angular-route.min.js"></script> -->
+	<script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 	<script src="/js/app.js"></script>  
 	<script src="/js/controllers/toy.js"></script> 
 	<script src="/js/controllers/game.js"></script> 
@@ -24,18 +25,20 @@
 	<header>
 		<nav class="navbar navbar-default navbar-static-top">
 			<div class="container">
-				<p class="navbar-text navbar-left"><a href="/" class="navbar-link">Home</a></p>
-				<p class="navbar-text navbar-left"><a href="/toys" class="navbar-link">Toys</a></p>
-				<p class="navbar-text navbar-left"><a href="/games" class="navbar-link">Games</a></p>
-				<p class="navbar-text navbar-left"><a href="/snacks" class="navbar-link">Snacks</a></p>
-				<p class="navbar-text navbar-left"><a href="/recipes" class="navbar-link">Recipes</a></p>
-				<p class="navbar-text navbar-left"><a href="/jokes" class="navbar-link">Jokes</a></p>
+				<p class="navbar-text navbar-left"><a ui-sref="home" class="navbar-link">Home</a></p>
+				<p class="navbar-text navbar-left"><a ui-sref="toys" class="navbar-link">Toys</a></p>
+				<p class="navbar-text navbar-left"><a ui-sref="games" class="navbar-link">Games</a></p>
+				<p class="navbar-text navbar-left"><a ui-sref="snacks" class="navbar-link">Snacks</a></p>
+				<p class="navbar-text navbar-left"><a ui-sref="recipes" class="navbar-link">Recipes</a></p>
+				<p class="navbar-text navbar-left"><a ui-sref="jokes" class="navbar-link">Jokes</a></p>
 			</div>
 		</nav>
 	</header>
-	<main>
-		<ng-view></ng-view>
-	</main>
+	<div class="container">
+		<div layout-padding>
+			<ui-view></ui-view>
+		</div>
+	</div>
 	<footer>
 		&copy; Micah Wierenga
 	</footer>

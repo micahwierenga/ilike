@@ -1,1 +1,46 @@
-Jokes
+<div class="jokes">
+	<div class="container">
+		<h2>Jokes</h2>
+		<div class="row">
+			<table id="itemTable" class="table table-bordered itemTable">
+				<tbody ng-repeat="joke in jokes.allJokes">
+					<tr>
+						<td class="itemCell notesCell yellowCell">
+							<strong>Joke</strong><br />
+							{{joke.description}}
+						</td>
+						<td class="itemCell grayCell buttonTableCell">
+							<table class="grayCell">
+								<tr>
+									<td class="buttonCell">
+										<button class="btn btn-success btn-width"><span class="itemOrder">{{joke.order}}</span></button>
+									</td>
+								</tr>
+								<tr>
+									<td class="buttonCell">
+										<button class="btn btn-primary btn-width" ng-click="jokes.moveJokeUp( joke )" ng-disabled="{{joke.order}} == 1 ? true : false"><span class="glyphicon glyphicon-triangle-top"></span></button>
+									</td>
+								</tr>
+								<tr>
+									<td class="buttonCell">
+										<button class="btn btn-danger btn-width" ng-click="jokes.deleteJoke( joke )"><span class="glyphicon glyphicon-remove"></span></button>
+									</td>
+								</tr>
+								<tr>
+									<td class="buttonCell">
+										<button class="btn btn-primary btn-width" ng-click="jokes.moveJokeDown( joke )" ng-disabled="{{joke.order}} == {{jokes.allJokes.length}} ? true : false"><span class="glyphicon glyphicon-triangle-bottom"></span></button>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" class="itemSeparatorCell">
+							
+						</td>
+					</tr>
+				</tbody>
+			</table>		
+		</div>
+	</div>
+</div>

@@ -1,130 +1,74 @@
-angular.module("iLikeApp", ['ngRoute'])
-	.config(function($routeProvider,$locationProvider){
-    $locationProvider.html5Mode({
-      enabled: true,
-      requireBase: false
-    });
+'use strict'
 
-    $routeProvider
-    	//Main Routes
-		.when('/', {
+angular.module('iLikeApp', ['ui.router'])
+	.config(function($stateProvider,$urlRouterProvider){
+
+    $stateProvider
+		.state( 'home', {
+			url: '/home',
 			templateUrl: '/templates/home.html'
 		})
+		
+		.state( 'toys', {
+			url: '/toys',
+			templateUrl: '/templates/toys.html',
+			controller: 'ToyIndexController as toys'
+		})
+		
+		.state( 'games', {
+			url: '/games',
+			templateUrl: '/templates/games.html',
+			controller: 'GameIndexController as games'
+		})
 
-			//Index Routes
-			
-			.when('/toys', {
-				templateUrl: '/templates/toys.html',
-				controller: "ToyIndexController as toys"
-			})
+		.state( 'snacks', {
+			url: '/snacks',
+			templateUrl: '/templates/snacks.html',
+			controller: 'SnackIndexController as snacks'
+		})
 
-			.when('/games', {
-				templateUrl: '/templates/games.html',
-				controller: "GameIndexController as games"
-			})
+		.state( 'recipes', {
+			url: '/recipes',
+			templateUrl: '/templates/recipes.html',
+			controller: 'RecipeIndexController as recipes'
+		})
 
-			.when('/snacks', {
-				templateUrl: '/templates/snacks.html',
-				controller: "SnackIndexController as snacks"
-			})
+		.state( 'jokes', {
+			url: '/jokes',
+			templateUrl: '/templates/jokes.html',
+			controller: 'JokeIndexController as jokes'
+		})
 
-			.when('/recipes', {
-				templateUrl: '/templates/recipes.html',
-				controller: "RecipeIndexController as recipes"
-			})
+		.state( 'home.new-toy', {
+			url: '/new-toy',
+			templateUrl: '/templates/forms/new-toy.html',
+			controller: 'ToyNewController as createToy'
+		})
 
-			.when('/jokes', {
-				templateUrl: '/templates/jokes.html',
-				controller: "JokeIndexController as jokes"
-			})
+		.state( 'home.new-game', {
+			url: '/new-game',
+			templateUrl: '/templates/forms/new-game.html',
+			controller: 'GameNewController as newGame'
+		})
 
-			// New Forms
-			.when('/forms/new-toy', {
-				templateUrl: '/templates/users/new-toy.html',
-				controller: "ToyNewController as newToy"
-			})
+		.state( 'home.new-snack', {
+			url: '/new-snack',
+			templateUrl: '/templates/forms/new-snack.html',
+			controller: 'SnackNewController as newSnack'
+		})
 
-			.when('/forms/new-game', {
-				templateUrl: '/templates/users/new-game.html',
-				controller: "GameNewController as newGame"
-			})
+		.state( 'home.new-recipe', {
+			url: '/new-recipe',
+			templateUrl: '/templates/forms/new-recipe.html',
+			controller: 'RecipeNewController as newRecipe'
+		})
 
-			.when('/forms/new-snack', {
-				templateUrl: '/templates/users/new-snack.html',
-				controller: "SnackNewController as newSnack"
-			})
+		.state( 'home.new-joke', {
+			url: '/new-joke',
+			templateUrl: '/templates/forms/new-joke.html',
+			controller: 'JokeNewController as newJoke'
+		})
 
-			.when('/forms/new-recipe', {
-				templateUrl: '/templates/users/new-recipe.html',
-				controller: "RecipeNewController as newRecipe"
-			})
+	$urlRouterProvider.otherwise( '/home' );
 
-			.when('/forms/new-joke', {
-				templateUrl: '/templates/users/new-joke.html',
-				controller: "JokeNewController as newJoke"
-			})
-
-			// show
-			.when('/users/:id', {
-				templateUrl: '/templates/users/show.html',
-				controller: "UserShowController as userController"
-			})
-
-			// edit
-			.when('/users/:id/edit', {
-				templateUrl: '/templates/users/edit.html',
-				controller: "UserEditController as userEditController"
-			})
-
-			//Post Routes
-			  
-			// index
-			.when('/posts', {
-				templateUrl: '/templates/posts/index.html',
-				controller: "PostIndexController as postsController"
-			})
-
-			// new
-			.when('/posts/new', {
-				templateUrl: '/templates/posts/new.html',
-				controller: "PostNewController as postNewController"
-			})
-
-			// show
-			.when('/posts/:id', {
-				templateUrl: '/templates/posts/show.html',
-				controller: "PostShowController as postController"
-			})
-
-			// edit
-			.when('/posts/:id/edit', {
-				templateUrl: '/templates/posts/edit.html',
-				controller: "PostEditController as postEditController"
-			})	
-
-			//Comment Routes
-			  
-			// index
-			.when('/comments', {
-				templateUrl: '/templates/comments/index.html',
-				controller: "CommentIndexController as commentsController"
-			})
-
-			// new
-			.when('/comments/new', {
-				templateUrl: '/templates/comments/new.html',
-				controller: "CommentNewController as commentNewController"
-			})
-
-			// show
-			.when('/comments/:id', {
-				templateUrl: '/templates/comments/show.html',
-				controller: "CommentShowController as commentController"
-			})
-
-			// edit
-			.when('/comments/:id/edit', {
-				templateUrl: '/templates/comments/edit.html',
-				controller: "CommentEditController as commentEditController"
-			});					
   });

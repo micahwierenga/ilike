@@ -35,12 +35,14 @@ let snackList = [
 let recipeList = [
 	{
 		name: 'Recipe 1',
+		recipe_url: 'recipe url 1',
 		image_url: 'url 1',
 		instructions: 'instructions 1',
 		order: 1
 	},
 	{
 		name: 'Recipe 2',
+		recipe_url: 'recipe url 2',
 		image_url: 'url 2',
 		instructions: 'instructions 2',
 		order: 2

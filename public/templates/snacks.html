@@ -1,1 +1,52 @@
-Snacks
+<div class="snacks">
+	<div class="container">
+		<h2>Snacks</h2>
+		<div class="row">
+			<table id="itemTable" class="table table-bordered itemTable">
+				<tbody ng-repeat="snack in snacks.allSnacks">
+					<tr>
+						<td colspan="2" class="itemCell yellowCell">
+							<h2 class="itemName">
+								{{snack.name}}
+							</h2>
+						</td>
+					</tr>
+					<tr>
+						<td class="itemCell">
+							<img width="200" src="{{snack.image_url}}">
+						</td>
+						<td class="itemCell grayCell buttonTableCell">
+							<table class="grayCell">
+								<tr>
+									<td class="buttonCell">
+										<button class="btn btn-success btn-width"><span class="itemOrder">{{snack.order}}</span></button>
+									</td>
+								</tr>
+								<tr>
+									<td class="buttonCell">
+										<button class="btn btn-primary btn-width" ng-click="snacks.moveSnackUp( snack )" ng-disabled="{{snack.order}} == 1 ? true : false"><span class="glyphicon glyphicon-triangle-top"></span></button>
+									</td>
+								</tr>
+								<tr>
+									<td class="buttonCell">
+										<button class="btn btn-danger btn-width" ng-click="snacks.deleteSnack( snack )"><span class="glyphicon glyphicon-remove"></span></button>
+									</td>
+								</tr>
+								<tr>
+									<td class="buttonCell">
+										<button class="btn btn-primary btn-width" ng-click="snacks.moveSnackDown( snack )" ng-disabled="{{snack.order}} == {{snacks.allSnacks.length}} ? true : false"><span class="glyphicon glyphicon-triangle-bottom"></span></button>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="itemSeparatorCell">
+							
+						</td>
+					</tr>
+				</tbody>
+			</table>		
+		</div>
+	</div>
+</div>

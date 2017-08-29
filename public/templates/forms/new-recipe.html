@@ -1,0 +1,24 @@
+<form ng-submit="createRecipe.create()">
+  <div class="form-group">
+    <label for="newRecipe-name">Name</label>
+    <input ng-model="createRecipe.newRecipe.name" type="name" class="form-control" id="newRecipe-name" placeholder="Enter name">
+  </div>
+  <!-- <div class="form-group">
+    <label for="newRecipe-url">Location</label>
+    <input ng-model="createRecipe.newRecipe.recipe_url" class="form-control" id="newRecipe-url" placeholder="Enter url">
+  </div> -->
+  <div class="form-group">
+    <label for="newRecipe-image">Image</label>
+    <input ng-model="createRecipe.newRecipe.image_url" class="form-control" id="newRecipe-image" placeholder="Enter image url">
+  </div>
+  <!-- <div class="form-group">
+    <label for="newRecipe-price">Price</label>
+    <input ng-model="createRecipe.newRecipe.price" class="form-control" id="newRecipe-price" placeholder="Enter price">
+  </div> -->
+  <div class="form-group">
+    <label for="newRecipe-instructions">Instructions</label>
+    <textarea ng-model="createRecipe.newRecipe.instructions" class="form-control" id="newRecipe-instructions" rows="5" placeholder="Instructions"></textarea>
+  </div>
+ 
+  <button type="submit" class="btn btn-submit">Create New Recipe</button>
+</form>

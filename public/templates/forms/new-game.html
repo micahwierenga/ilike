@@ -1,0 +1,24 @@
+<form ng-submit="createGame.create()">
+  <div class="form-group">
+    <label for="newGame-name">Name</label>
+    <input ng-model="createGame.newGame.name" type="name" class="form-control" id="newGame-name" placeholder="Enter name">
+  </div>
+  <div class="form-group">
+    <label for="newGame-url">Location</label>
+    <input ng-model="createGame.newGame.game_url" class="form-control" id="newGame-url" placeholder="Enter url">
+  </div>
+  <div class="form-group">
+    <label for="newGame-image">Image</label>
+    <input ng-model="createGame.newGame.image_url" class="form-control" id="newGame-image" placeholder="Enter image url">
+  </div>
+  <!-- <div class="form-group">
+    <label for="newGame-price">Price</label>
+    <input ng-model="createGame.newGame.price" class="form-control" id="newGame-price" placeholder="Enter price">
+  </div> -->
+  <div class="form-group">
+    <label for="newGame-notes">Notes</label>
+    <textarea ng-model="createGame.newGame.notes" class="form-control" id="newGame-notes" rows="5" placeholder="Your thoughts"></textarea>
+  </div>
+ 
+  <button type="submit" class="btn btn-submit">Create New Game</button>
+</form>

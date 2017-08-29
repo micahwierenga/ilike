@@ -1,29 +1,43 @@
 body {
-	background-color:#add8e6;
+	background-color:#003366;
+	color: rgb(221, 165, 11);
 }
 .navbar {
-	background-color: #492914;
+	/*background-color: rgb(221, 165, 11);*/
+	/*background: -webkit-linear-gradient(right , rgb(216, 142, 37), rgb(221, 165, 11))*/
+	background-color: rgb(221, 165, 11);
 }
 .navbar-link {
-	color: #add8e6 !important;
+	color: #003366 !important;
+	font-weight: 600;
 }
 a {
 	text-decoration: none;
 	color: inherit;
 }
+.btn-dark-real {
+	background-color: rgb(52, 58, 64);
+}
+.btn-submit {
+	background-color: rgb(221, 165, 11);
+	color: #003366;
+}
 table {
 	text-align: center;
 	background: #fff;
-	color: #492914;
+	color: rgb(221, 165, 11);
 	vertical-align: middle;
     border-collapse: collapse;
 }
-.toyTable, .toyCell {
-	border: 3px solid #add8e6 !important;
+.itemTable, .itemCell {
+	border: 3px solid #003366 !important;
 }
-.grayRow {
-	background-color: #c0c0c0;
-	color: #492914;
+.yellowCell {
+	background-color: rgb(221, 165, 11);
+	color: #003366;
+}
+.grayCell {
+	background-color: white;
 }
 .itemName {
 	text-transform: uppercase;
@@ -35,7 +49,7 @@ table {
 .buttonCell {
 	padding: 5px;
 }
-.toyOrder {
+.itemOrder {
 	font-weight: 800;
 }
 .btn-width {
@@ -44,6 +58,13 @@ table {
 .notesCell {
 	text-align: left;
 }
-.toySeparatorCell {
-	background-color: #add8e6;
+.itemSeparatorCell {
+	background-color: #003366;
+}
+footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:20px;
+   text-align: center;
 }

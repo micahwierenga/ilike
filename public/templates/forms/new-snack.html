@@ -1,0 +1,12 @@
+<form ng-submit="createSnack.create()">
+  <div class="form-group">
+    <label for="newSnack-name">Name</label>
+    <input ng-model="createSnack.newSnack.name" type="name" class="form-control" id="newSnack-name" placeholder="Enter name">
+  </div>
+  <div class="form-group">
+    <label for="newSnack-image">Image</label>
+    <input ng-model="createSnack.newSnack.image_url" class="form-control" id="newSnack-image" placeholder="Enter image url">
+  </div>
+ 
+  <button type="submit" class="btn btn-submit">Create New Snack</button>
+</form>

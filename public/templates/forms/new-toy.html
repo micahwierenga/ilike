@@ -1,0 +1,24 @@
+<form ng-submit="createToy.create()">
+  <div class="form-group">
+    <label for="newToy-name">Name</label>
+    <input ng-model="createToy.newToy.name" type="name" class="form-control" id="newToy-name" placeholder="Enter name">
+  </div>
+  <div class="form-group">
+    <label for="newToy-url">Location</label>
+    <input ng-model="createToy.newToy.toy_url" class="form-control" id="newToy-url" placeholder="Enter url">
+  </div>
+  <div class="form-group">
+    <label for="newToy-image">Image</label>
+    <input ng-model="createToy.newToy.image_url" class="form-control" id="newToy-image" placeholder="Enter image url">
+  </div>
+  <!-- <div class="form-group">
+    <label for="newToy-price">Price</label>
+    <input ng-model="createToy.newToy.price" class="form-control" id="newToy-price" placeholder="Enter price">
+  </div> -->
+  <div class="form-group">
+    <label for="newToy-notes">Notes</label>
+    <textarea ng-model="createToy.newToy.notes" class="form-control" id="newToy-notes" rows="5" placeholder="Your thoughts"></textarea>
+  </div>
+ 
+  <button type="submit" class="btn btn-submit">Create New Toy</button>
+</form>

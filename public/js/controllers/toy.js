@@ -16,15 +16,29 @@ function ToyIndexController( $http ) {
 		});
 	}
 
-	function deleteToy( toy ) {
-		$http.delete( '/api/toys/' + toy.id )
+	function deleteToy( deletedToy ) {
+		moveAllToysUp( deletedToy );
+		$http.delete( '/api/toys/' + deletedToy.id )
 		.then( function( response ) {
-			let toyIndex = vm.allToys.indexOf( toy );
+			let toyIndex = vm.allToys.indexOf( deletedToy );
 			vm.allToys.splice( toyIndex, 1 );
 		})
 	}
 
 	getAllToys();
+
+	function moveAllToysUp ( deletedToy ) {
+		for( let i = 0; i < vm.allToys.length; i++ ) {
+			if( vm.allToys[i].order > deletedToy.order ) {
+				console.log( vm.allToys[i] );
+				vm.allToys[i].order -= 1;
+				$http.put( '/api/toys/' + vm.allToys[i].id, vm.allToys[i] )
+				.then( function( response ) {
+
+				})
+			}
+		}
+	}
 
 	function moveToyUp( toy ) {
 		if( toy.order != 1 ) {
@@ -88,7 +102,26 @@ function ToyIndexController( $http ) {
 
 }
 
-ToyNewController.$inject = ['$http'];
-function ToyNewController( $http ) {
-	
+ToyNewController.$inject = ['$http', '$state'];
+function ToyNewController( $http, $state ) {
+	let vm = this;
+	vm.create = create;
+
+	function getAllToys() {
+		$http.get( '/api/toys' )
+		.then( function( response ) {
+			vm.allToys = response.data;
+		});
+	}
+
+	getAllToys();
+
+	function create() {
+		vm.newToy['order'] = vm.allToys.length + 1;
+		$http.post( '/api/toys', vm.newToy )
+		.then( function( response ) {
+			console.log( response.data );
+			$state.go( 'toys' );
+		})
+	}
 }

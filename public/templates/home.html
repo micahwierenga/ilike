@@ -1,15 +1,18 @@
-Home
-<nav class="navbar navbar-default navbar-static-top">
-	<div class="container">
-		<p>Create new:</p>
-		<p class="navbar-text navbar-left"><a href="/forms/new-toys" class="navbar-link">Toys</a></p>
-		<p class="navbar-text navbar-left"><a href="/forms/new-games" class="navbar-link">Games</a></p>
-		<p class="navbar-text navbar-left"><a href="/forms/new-snacks" class="navbar-link">Snacks</a></p>
-		<p class="navbar-text navbar-left"><a href="/forms/new-recipes" class="navbar-link">Recipes</a></p>
-		<p class="navbar-text navbar-left"><a href="/forms/new-jokes" class="navbar-link">Jokes</a></p>
+<div class="row">
+	<h4>Create new:</h4>
+</div>
+<div class="row">
+	<a ui-sref="home.new-toy" class="btn btn-dark-real" role="button">Toy</a>
+	<a ui-sref="home.new-game" class="btn btn-dark-real" role="button">Game</a>
+	<a ui-sref="home.new-snack" class="btn btn-dark-real" role="button">Snack</a>
+	<a ui-sref="home.new-recipe" class="btn btn-dark-real" role="button">Recipe</a>
+	<a ui-sref="home.new-joke" class="btn btn-dark-real" role="button">Joke</a>
+</div>
+<div class="row">
+	<p>&nbsp;</p>
+</div>
+<div class="row">
+	<div layout-padding>
+		<ui-view></ui-view>
 	</div>
-</nav>
-
-<!-- <main>
-	<ng-view></ng-view>
-</main> -->
+</div>

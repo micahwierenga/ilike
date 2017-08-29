@@ -1,1 +1,58 @@
-Recipes
+<div class="recipes">
+	<div class="container">
+		<h2>Recipes</h2>
+		<div class="row">
+			<table id="itemTable" class="table table-bordered itemTable">
+				<tbody ng-repeat="recipe in recipes.allRecipes">
+					<tr>
+						<td colspan="2" class="itemCell yellowCell">
+							<h2 class="itemName">
+								<a href="{{recipe.recipe_url}}" target="_blank">{{recipe.name}}</a>
+							</h2>
+						</td>
+					</tr>
+					<tr>
+						<td class="itemCell">
+							<a href="{{recipe.recipe_url}}" target="_blank"><img width="200" src="{{recipe.image_url}}"></a>
+						</td>
+						<td class="itemCell grayCell buttonTableCell">
+							<table class="grayCell">
+								<tr>
+									<td class="buttonCell">
+										<button class="btn btn-success btn-width"><span class="itemOrder">{{recipe.order}}</span></button>
+									</td>
+								</tr>
+								<tr>
+									<td class="buttonCell">
+										<button class="btn btn-primary btn-width" ng-click="recipes.moveRecipeUp( recipe )" ng-disabled="{{recipe.order}} == 1 ? true : false"><span class="glyphicon glyphicon-triangle-top"></span></button>
+									</td>
+								</tr>
+								<tr>
+									<td class="buttonCell">
+										<button class="btn btn-danger btn-width" ng-click="recipes.deleteRecipe( recipe )"><span class="glyphicon glyphicon-remove"></span></button>
+									</td>
+								</tr>
+								<tr>
+									<td class="buttonCell">
+										<button class="btn btn-primary btn-width" ng-click="recipes.moveRecipeDown( recipe )" ng-disabled="{{recipe.order}} == {{recipes.allRecipes.length}} ? true : false"><span class="glyphicon glyphicon-triangle-bottom"></span></button>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" class="itemCell notesCell yellowCell">
+							<strong>Instructions</strong><br />
+							{{recipe.instructions}}
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="itemSeparatorCell">
+							
+						</td>
+					</tr>
+				</tbody>
+			</table>		
+		</div>
+	</div>
+</div>
