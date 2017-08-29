@@ -30,6 +30,7 @@ function GameIndexController( $http ) {
 	function moveAllGamesUp ( deletedGame ) {
 		for( let i = 0; i < vm.allGames.length; i++ ) {
 			if( vm.allGames[i].order > deletedGame.order ) {
+				console.log( vm.allGames[i] );
 				vm.allGames[i].order -= 1;
 				$http.put( '/api/games/' + vm.allGames[i].id, vm.allGames[i] )
 				.then( function( response ) {
@@ -118,7 +119,8 @@ function GameNewController( $http, $state ) {
 	function create() {
 		vm.newGame['order'] = vm.allGames.length + 1;
 		$http.post( '/api/games', vm.newGame )
-		.then( function( response ) 
+		.then( function( response ) {
+			console.log( response.data );
 			$state.go( 'games' );
 		})
 	}

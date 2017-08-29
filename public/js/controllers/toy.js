@@ -31,6 +31,7 @@ function ToyIndexController( $http ) {
 	function moveAllToysUp ( deletedToy ) {
 		for( let i = 0; i < vm.allToys.length; i++ ) {
 			if( vm.allToys[i].order > deletedToy.order ) {
+				console.log( vm.allToys[i] );
 				vm.allToys[i].order -= 1;
 				$http.put( '/api/toys/' + vm.allToys[i].id, vm.allToys[i] )
 				.then( function( response ) {
@@ -119,7 +120,8 @@ function ToyNewController( $http, $state ) {
 	function create() {
 		vm.newToy['order'] = vm.allToys.length + 1;
 		$http.post( '/api/toys', vm.newToy )
-		.then( function( response ) 
+		.then( function( response ) {
+			console.log( response.data );
 			$state.go( 'toys' );
 		})
 	}
