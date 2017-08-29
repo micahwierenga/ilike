@@ -8,7 +8,7 @@ module.exports = function( sequelize, Sequelize ) {
 		name: Sequelize.STRING,
 		recipe_url: Sequelize.STRING,
 		image_url: Sequelize.STRING,
-		instructions: Sequelize.STRING,
+		instructions: Sequelize.TEXT,
 		order: Sequelize.INTEGER
 	})
 	return model;

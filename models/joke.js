@@ -5,7 +5,7 @@ module.exports = function( sequelize, Sequelize ) {
 			autoIncrement: true,
 			primaryKey: true
 		},
-		description: Sequelize.STRING,
+		description: Sequelize.TEXT,
 		order: Sequelize.INTEGER
 	})
 	return model;

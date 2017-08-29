@@ -9,7 +9,7 @@ module.exports = function( sequelize, Sequelize ) {
 		toy_url: Sequelize.STRING,
 		image_url: Sequelize.STRING,
 		price: Sequelize.FLOAT,
-		notes: Sequelize.STRING,
+		notes: Sequelize.TEXT,
 		order: Sequelize.INTEGER
 	})
 	return model;
