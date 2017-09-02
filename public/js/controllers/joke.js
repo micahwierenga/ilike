@@ -22,6 +22,7 @@ function JokeIndexController( $http ) {
 		.then( function( response ) {
 			let jokeIndex = vm.allJokes.indexOf( deletedJoke );
 			vm.allJokes.splice( jokeIndex, 1 );
+			getAllJokes();
 		})
 	}
 
@@ -30,7 +31,6 @@ function JokeIndexController( $http ) {
 	function moveAllJokesUp ( deletedJoke ) {
 		for( let i = 0; i < vm.allJokes.length; i++ ) {
 			if( vm.allJokes[i].order > deletedJoke.order ) {
-				console.log( vm.allJokes[i] );
 				vm.allJokes[i].order -= 1;
 				$http.put( '/api/jokes/' + vm.allJokes[i].id, vm.allJokes[i] )
 				.then( function( response ) {
@@ -120,7 +120,6 @@ function JokeNewController( $http, $state ) {
 		vm.newJoke['order'] = vm.allJokes.length + 1;
 		$http.post( '/api/jokes', vm.newJoke )
 		.then( function( response ) {
-			console.log( response.data );
 			$state.go( 'jokes' );
 		})
 	}

@@ -22,6 +22,7 @@ function RecipeIndexController( $http ) {
 		.then( function( response ) {
 			let recipeIndex = vm.allRecipes.indexOf( deletedRecipe );
 			vm.allRecipes.splice( recipeIndex, 1 );
+			getAllRecipes();
 		})
 	}
 
@@ -30,7 +31,6 @@ function RecipeIndexController( $http ) {
 	function moveAllRecipesUp ( deletedRecipe ) {
 		for( let i = 0; i < vm.allRecipes.length; i++ ) {
 			if( vm.allRecipes[i].order > deletedRecipe.order ) {
-				console.log( vm.allRecipes[i] );
 				vm.allRecipes[i].order -= 1;
 				$http.put( '/api/recipes/' + vm.allRecipes[i].id, vm.allRecipes[i] )
 				.then( function( response ) {
@@ -120,7 +120,6 @@ function RecipeNewController( $http, $state ) {
 		vm.newRecipe['order'] = vm.allRecipes.length + 1;
 		$http.post( '/api/recipes', vm.newRecipe )
 		.then( function( response ) {
-			console.log( response.data );
 			$state.go( 'recipes' );
 		})
 	}

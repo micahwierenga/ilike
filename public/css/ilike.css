@@ -101,6 +101,7 @@ table {
 }
 .notesCell {
 	text-align: left;
+	white-space: pre-line;
 }
 .itemSeparatorCell {
 	background-color: #003366;

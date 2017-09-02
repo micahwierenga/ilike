@@ -22,6 +22,7 @@ function SnackIndexController( $http ) {
 		.then( function( response ) {
 			let snackIndex = vm.allSnacks.indexOf( deletedSnack );
 			vm.allSnacks.splice( snackIndex, 1 );
+			getAllSnacks();
 		})
 	}
 
@@ -30,7 +31,6 @@ function SnackIndexController( $http ) {
 	function moveAllSnacksUp ( deletedSnack ) {
 		for( let i = 0; i < vm.allSnacks.length; i++ ) {
 			if( vm.allSnacks[i].order > deletedSnack.order ) {
-				console.log( vm.allSnacks[i] );
 				vm.allSnacks[i].order -= 1;
 				$http.put( '/api/snacks/' + vm.allSnacks[i].id, vm.allSnacks[i] )
 				.then( function( response ) {
@@ -120,7 +120,6 @@ function SnackNewController( $http, $state ) {
 		vm.newSnack['order'] = vm.allSnacks.length + 1;
 		$http.post( '/api/snacks', vm.newSnack )
 		.then( function( response ) {
-			console.log( response.data );
 			$state.go( 'snacks' );
 		})
 	}
