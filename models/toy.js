@@ -6,8 +6,8 @@ module.exports = function( sequelize, Sequelize ) {
 			primaryKey: true
 		},
 		name: Sequelize.STRING,
-		toy_url: Sequelize.STRING,
-		image_url: Sequelize.STRING,
+		toy_url: Sequelize.TEXT,
+		image_url: Sequelize.TEXT,
 		price: Sequelize.FLOAT,
 		notes: Sequelize.TEXT,
 		order: Sequelize.INTEGER

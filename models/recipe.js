@@ -6,8 +6,8 @@ module.exports = function( sequelize, Sequelize ) {
 			primaryKey: true
 		},
 		name: Sequelize.STRING,
-		recipe_url: Sequelize.STRING,
-		image_url: Sequelize.STRING,
+		recipe_url: Sequelize.TEXT,
+		image_url: Sequelize.TEXT,
 		instructions: Sequelize.TEXT,
 		order: Sequelize.INTEGER
 	})

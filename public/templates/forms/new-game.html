@@ -1,11 +1,11 @@
 <h3 class="formTitle">New Game</h3>
-<form ng-submit="createGame.create()">
+<form ng-submit="createGame.create()" class="margin-10-percent">
   <div class="form-group">
     <label for="newGame-name">Name</label>
     <input ng-model="createGame.newGame.name" type="name" class="form-control" id="newGame-name" placeholder="Enter name">
   </div>
   <div class="form-group">
-    <label for="newGame-url">Location</label>
+    <label for="newGame-url">Link</label>
     <input ng-model="createGame.newGame.game_url" class="form-control" id="newGame-url" placeholder="Enter url">
   </div>
   <div class="form-group">

@@ -6,7 +6,16 @@ angular.module('iLikeApp', ['ui.router'])
     $stateProvider
 		.state( 'home', {
 			url: '/home',
-			templateUrl: '/templates/home.html'
+			views: {
+				'': {
+					templateUrl: '/templates/home.html'		
+				},
+				'@home': {
+					templateUrl: '/templates/forms/new-toy.html',
+					controller: 'ToyNewController as createToy'
+				}
+			}
+			
 		})
 		
 		.state( 'toys', {

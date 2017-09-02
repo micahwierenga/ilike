@@ -1,6 +1,9 @@
 <div class="snacks">
 	<div class="container">
-		<h2>Snacks</h2>
+		<div class="row margin-bottom-15px">
+			<h2 class="float-left">Snack</h2>
+			<a ui-sref="home.new-snack" class="btn btn-submit float-right margin-top-18px" role="button">Add New Snack</a>
+		</div>
 		<div class="row">
 			<table id="itemTable" class="table table-bordered itemTable">
 				<tbody ng-repeat="snack in snacks.allSnacks">

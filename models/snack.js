@@ -6,7 +6,7 @@ module.exports = function( sequelize, Sequelize ) {
 			primaryKey: true
 		},
 		name: Sequelize.STRING,
-		image_url: Sequelize.STRING,
+		image_url: Sequelize.TEXT,
 		order: Sequelize.INTEGER
 	})
 	return model;

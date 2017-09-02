@@ -1,6 +1,9 @@
 <div class="recipes">
 	<div class="container">
-		<h2>Recipes</h2>
+		<div class="row margin-bottom-15px">
+			<h2 class="float-left">Recipes</h2>
+			<a ui-sref="home.new-recipe" class="btn btn-submit float-right margin-top-18px" role="button">Add New Recipe</a>
+		</div>
 		<div class="row">
 			<table id="itemTable" class="table table-bordered itemTable">
 				<tbody ng-repeat="recipe in recipes.allRecipes">
