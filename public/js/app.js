@@ -108,6 +108,6 @@ angular.module('iLikeApp', ['ui.router'])
 			controller: 'JokeNewController as createJoke'
 		})
 
-	$urlRouterProvider.otherwise( '/home' );
+	$urlRouterProvider.otherwise( '/toys' );
 
   });
