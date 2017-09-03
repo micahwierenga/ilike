@@ -59,6 +59,12 @@ a {
 .margin-top-18px {
 	margin-top:18px
 }
+.margin-right-10px {
+	margin-right: 10px;
+}
+.btn-right {
+	float: right;
+}
 .btn-dark-real {
 	background-color: rgb(52, 58, 64);
 }
@@ -101,6 +107,8 @@ table {
 }
 .notesCell {
 	text-align: left;
+}
+.notes-paragraph {
 	white-space: pre-line;
 }
 .itemSeparatorCell {

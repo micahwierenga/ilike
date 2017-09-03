@@ -1,0 +1,14 @@
+<h3 class="formTitle">Edit Snack</h3>
+<form ng-submit="updateSnack.updateSnack()" class="margin-10-percent">
+  <div class="form-group">
+    <label for="selectedSnack-name">Name</label>
+    <input ng-model="updateSnack.selectedSnack.name" type="name" class="form-control" id="selectedSnack-name">
+  </div>
+  <div class="form-group">
+    <label for="selectedSnack-image">Image</label>
+    <input ng-model="updateSnack.selectedSnack.image_url" class="form-control" id="selectedSnack-image">
+  </div>
+ 
+  <button type="submit" class="btn btn-submit btn-right">Update Snack</button>
+  <a ui-sref="snacks" class="btn btn-submit btn-right margin-right-10px" role="button">Cancel</a>
+</form>

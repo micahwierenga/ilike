@@ -1,6 +1,7 @@
 angular.module( 'iLikeApp' )
 	.controller( 'GameIndexController', GameIndexController )
 	.controller( 'GameNewController', GameNewController )
+	.controller( 'GameUpdateController', GameUpdateController )
 
 GameIndexController.$inject = ['$http'];
 function GameIndexController( $http ) {
@@ -119,6 +120,28 @@ function GameNewController( $http, $state ) {
 	function create() {
 		vm.newGame['order'] = vm.allGames.length + 1;
 		$http.post( '/api/games', vm.newGame )
+		.then( function( response ) {
+			$state.go( 'games' );
+		})
+	}
+}
+
+GameUpdateController.$inject = ['$http', '$state', '$stateParams'];
+function GameUpdateController( $http, $state, $stateParams ) {
+	let vm = this;
+	vm.updateGame = updateGame;
+
+	function getGame() {
+		$http.get( '/api/games/' + $stateParams.id )
+		.then( function( response ) {
+			vm.selectedGame = response.data;
+		});
+	}
+
+	getGame();
+
+	function updateGame() {
+		$http.put( '/api/games/' + $stateParams.id, vm.selectedGame )
 		.then( function( response ) {
 			$state.go( 'games' );
 		})

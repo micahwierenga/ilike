@@ -1,6 +1,7 @@
 angular.module( 'iLikeApp' )
 	.controller( 'RecipeIndexController', RecipeIndexController )
 	.controller( 'RecipeNewController', RecipeNewController )
+	.controller( 'RecipeUpdateController', RecipeUpdateController )
 
 RecipeIndexController.$inject = ['$http'];
 function RecipeIndexController( $http ) {
@@ -119,6 +120,28 @@ function RecipeNewController( $http, $state ) {
 	function create() {
 		vm.newRecipe['order'] = vm.allRecipes.length + 1;
 		$http.post( '/api/recipes', vm.newRecipe )
+		.then( function( response ) {
+			$state.go( 'recipes' );
+		})
+	}
+}
+
+RecipeUpdateController.$inject = ['$http', '$state', '$stateParams'];
+function RecipeUpdateController( $http, $state, $stateParams ) {
+	let vm = this;
+	vm.updateRecipe = updateRecipe;
+
+	function getRecipe() {
+		$http.get( '/api/recipes/' + $stateParams.id )
+		.then( function( response ) {
+			vm.selectedRecipe = response.data;
+		});
+	}
+
+	getRecipe();
+
+	function updateRecipe() {
+		$http.put( '/api/recipes/' + $stateParams.id, vm.selectedRecipe )
 		.then( function( response ) {
 			$state.go( 'recipes' );
 		})

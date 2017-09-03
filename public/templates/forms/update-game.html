@@ -1,0 +1,26 @@
+<h3 class="formTitle">Edit Game</h3>
+<form ng-submit="updateGame.updateGame()" class="margin-10-percent">
+  <div class="form-group">
+    <label for="selectedGame-name">Name</label>
+    <input ng-model="updateGame.selectedGame.name" type="name" class="form-control" id="selectedGame-name">
+  </div>
+  <div class="form-group">
+    <label for="selectedGame-url">Link</label>
+    <input ng-model="updateGame.selectedGame.game_url" class="form-control" id="selectedGame-url">
+  </div>
+  <div class="form-group">
+    <label for="selectedGame-image">Image</label>
+    <input ng-model="updateGame.selectedGame.image_url" class="form-control" id="selectedGame-image">
+  </div>
+  <!-- <div class="form-group">
+    <label for="selectedGame-price">Price</label>
+    <input ng-model="updateGame.selectedGame.price" class="form-control" id="selectedGame-price" placeholder="Enter price">
+  </div> -->
+  <div class="form-group">
+    <label for="selectedGame-notes">Notes</label>
+    <textarea ng-model="updateGame.selectedGame.notes" class="form-control" id="selectedGame-notes" rows="5"></textarea>
+  </div>
+ 
+  <button type="submit" class="btn btn-submit btn-right">Update Game</button>
+  <a ui-sref="games" class="btn btn-submit btn-right margin-right-10px" role="button">Cancel</a>
+</form>

@@ -1,0 +1,26 @@
+<h3 class="formTitle">Edit Recipe</h3>
+<form ng-submit="updateRecipe.updateRecipe()" class="margin-10-percent">
+  <div class="form-group">
+    <label for="selectedRecipe-name">Name</label>
+    <input ng-model="updateRecipe.selectedRecipe.name" type="name" class="form-control" id="selectedRecipe-name">
+  </div>
+  <!-- <div class="form-group">
+    <label for="selectedRecipe-url">Location</label>
+    <input ng-model="updateRecipe.selectedRecipe.recipe_url" class="form-control" id="selectedRecipe-url" placeholder="Enter url">
+  </div> -->
+  <div class="form-group">
+    <label for="selectedRecipe-image">Image</label>
+    <input ng-model="updateRecipe.selectedRecipe.image_url" class="form-control" id="selectedRecipe-image">
+  </div>
+  <!-- <div class="form-group">
+    <label for="selectedRecipe-price">Price</label>
+    <input ng-model="updateRecipe.selectedRecipe.price" class="form-control" id="selectedRecipe-price" placeholder="Enter price">
+  </div> -->
+  <div class="form-group">
+    <label for="selectedRecipe-instructions">Instructions</label>
+    <textarea ng-model="updateRecipe.selectedRecipe.instructions" class="form-control" id="selectedRecipe-instructions" rows="5"></textarea>
+  </div>
+ 
+  <button type="submit" class="btn btn-submit btn-right">Update Recipe</button>
+  <a ui-sref="recipes" class="btn btn-submit btn-right margin-right-10px" role="button">Cancel</a>
+</form>

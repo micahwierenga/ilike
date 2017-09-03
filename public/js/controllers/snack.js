@@ -1,6 +1,7 @@
 angular.module( 'iLikeApp' )
 	.controller( 'SnackIndexController', SnackIndexController )
 	.controller( 'SnackNewController', SnackNewController )
+	.controller( 'SnackUpdateController', SnackUpdateController )
 
 SnackIndexController.$inject = ['$http'];
 function SnackIndexController( $http ) {
@@ -119,6 +120,28 @@ function SnackNewController( $http, $state ) {
 	function create() {
 		vm.newSnack['order'] = vm.allSnacks.length + 1;
 		$http.post( '/api/snacks', vm.newSnack )
+		.then( function( response ) {
+			$state.go( 'snacks' );
+		})
+	}
+}
+
+SnackUpdateController.$inject = ['$http', '$state', '$stateParams'];
+function SnackUpdateController( $http, $state, $stateParams ) {
+	let vm = this;
+	vm.updateSnack = updateSnack;
+
+	function getSnack() {
+		$http.get( '/api/snacks/' + $stateParams.id )
+		.then( function( response ) {
+			vm.selectedSnack = response.data;
+		});
+	}
+
+	getSnack();
+
+	function updateSnack() {
+		$http.put( '/api/snacks/' + $stateParams.id, vm.selectedSnack )
 		.then( function( response ) {
 			$state.go( 'snacks' );
 		})

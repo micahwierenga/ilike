@@ -1,11 +1,13 @@
 angular.module( 'iLikeApp' )
 	.controller( 'ToyIndexController', ToyIndexController )
 	.controller( 'ToyNewController', ToyNewController )
+	.controller( 'ToyUpdateController', ToyUpdateController )
 
 ToyIndexController.$inject = ['$http'];
 function ToyIndexController( $http ) {
 	let vm = this;
 	vm.deleteToy = deleteToy;
+	vm.getOneToy = getOneToy;
 	vm.moveToyUp = moveToyUp;
 	vm.moveToyDown = moveToyDown;
 
@@ -27,6 +29,13 @@ function ToyIndexController( $http ) {
 	}
 
 	getAllToys();
+
+	function getOneToy() {
+		$http.get( '/api/toys/' + $stateParams.id )
+		.then( function( response ) {
+			vm.selectedToy = response.data;
+		})
+	}
 
 	function moveAllToysUp ( deletedToy ) {
 		for( let i = 0; i < vm.allToys.length; i++ ) {
@@ -119,6 +128,28 @@ function ToyNewController( $http, $state ) {
 	function create() {
 		vm.newToy['order'] = vm.allToys.length + 1;
 		$http.post( '/api/toys', vm.newToy )
+		.then( function( response ) {
+			$state.go( 'toys' );
+		})
+	}
+}
+
+ToyUpdateController.$inject = ['$http', '$state', '$stateParams'];
+function ToyUpdateController( $http, $state, $stateParams ) {
+	let vm = this;
+	vm.updateToy = updateToy;
+
+	function getToy() {
+		$http.get( '/api/toys/' + $stateParams.id )
+		.then( function( response ) {
+			vm.selectedToy = response.data;
+		});
+	}
+
+	getToy();
+
+	function updateToy() {
+		$http.put( '/api/toys/' + $stateParams.id, vm.selectedToy )
 		.then( function( response ) {
 			$state.go( 'toys' );
 		})

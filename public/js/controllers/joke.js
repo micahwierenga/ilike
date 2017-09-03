@@ -1,6 +1,7 @@
 angular.module( 'iLikeApp' )
 	.controller( 'JokeIndexController', JokeIndexController )
 	.controller( 'JokeNewController', JokeNewController )
+	.controller( 'JokeUpdateController', JokeUpdateController )
 
 JokeIndexController.$inject = ['$http'];
 function JokeIndexController( $http ) {
@@ -119,6 +120,28 @@ function JokeNewController( $http, $state ) {
 	function create() {
 		vm.newJoke['order'] = vm.allJokes.length + 1;
 		$http.post( '/api/jokes', vm.newJoke )
+		.then( function( response ) {
+			$state.go( 'jokes' );
+		})
+	}
+}
+
+JokeUpdateController.$inject = ['$http', '$state', '$stateParams'];
+function JokeUpdateController( $http, $state, $stateParams ) {
+	let vm = this;
+	vm.updateJoke = updateJoke;
+
+	function getJoke() {
+		$http.get( '/api/jokes/' + $stateParams.id )
+		.then( function( response ) {
+			vm.selectedJoke = response.data;
+		});
+	}
+
+	getJoke();
+
+	function updateJoke() {
+		$http.put( '/api/jokes/' + $stateParams.id, vm.selectedJoke )
 		.then( function( response ) {
 			$state.go( 'jokes' );
 		})

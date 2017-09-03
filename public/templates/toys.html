@@ -32,6 +32,11 @@
 								</tr>
 								<tr>
 									<td class="buttonCell">
+									<a ui-sref="update-toy({id: toy.id})" class="btn btn-info" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
+									</td>
+								</tr>
+								<tr>
+									<td class="buttonCell">
 										<button class="btn btn-danger btn-width" ng-click="toys.deleteToy( toy )"><span class="glyphicon glyphicon-remove"></span></button>
 									</td>
 								</tr>
@@ -45,8 +50,8 @@
 					</tr>
 					<tr>
 						<td colspan="2" class="itemCell notesCell yellowCell">
-							<strong>Thoughts</strong><br />
-							{{toy.notes}}
+							<strong>{{toy.notes ? 'Notes' : ''}}</strong><br />
+							<p class="notes-paragraph">{{toy.notes}}</p>
 						</td>
 					</tr>
 					<tr>

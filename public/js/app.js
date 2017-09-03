@@ -48,6 +48,36 @@ angular.module('iLikeApp', ['ui.router'])
 			controller: 'JokeIndexController as jokes'
 		})
 
+		.state( 'update-toy', {
+			url: '/toys/:id',
+			templateUrl: '/templates/forms/update-toy.html',
+			controller: 'ToyUpdateController as updateToy'
+		})
+
+		.state( 'update-game', {
+			url: '/games/:id',
+			templateUrl: '/templates/forms/update-game.html',
+			controller: 'GameUpdateController as updateGame'
+		})
+
+		.state( 'update-snack', {
+			url: '/snacks/:id',
+			templateUrl: '/templates/forms/update-snack.html',
+			controller: 'SnackUpdateController as updateSnack'
+		})
+
+		.state( 'update-recipe', {
+			url: '/recipes/:id',
+			templateUrl: '/templates/forms/update-recipe.html',
+			controller: 'RecipeUpdateController as updateRecipe'
+		})
+
+		.state( 'update-joke', {
+			url: '/jokes/:id',
+			templateUrl: '/templates/forms/update-joke.html',
+			controller: 'JokeUpdateController as updateJoke'
+		})
+
 		.state( 'home.new-toy', {
 			url: '/new-toy',
 			templateUrl: '/templates/forms/new-toy.html',

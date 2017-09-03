@@ -9,8 +9,8 @@
 				<tbody ng-repeat="joke in jokes.allJokes">
 					<tr>
 						<td class="itemCell notesCell yellowCell">
-							<strong>Joke</strong><br />
-							{{joke.description}}
+							<strong>{{joke.description ? 'Joke' : ''}}</strong><br />
+							<p class="notes-paragraph">{{joke.description}}</p>
 						</td>
 						<td class="itemCell grayCell buttonTableCell">
 							<table class="grayCell">
@@ -22,6 +22,11 @@
 								<tr>
 									<td class="buttonCell">
 										<button class="btn btn-primary btn-width" ng-click="jokes.moveJokeUp( joke )" ng-disabled="{{joke.order}} == 1 ? true : false"><span class="glyphicon glyphicon-triangle-top"></span></button>
+									</td>
+								</tr>
+								<tr>
+									<td class="buttonCell">
+									<a ui-sref="update-joke({id: joke.id})" class="btn btn-info" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
 									</td>
 								</tr>
 								<tr>

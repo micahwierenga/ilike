@@ -32,6 +32,11 @@
 								</tr>
 								<tr>
 									<td class="buttonCell">
+									<a ui-sref="update-recipe({id: recipe.id})" class="btn btn-info" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
+									</td>
+								</tr>
+								<tr>
+									<td class="buttonCell">
 										<button class="btn btn-danger btn-width" ng-click="recipes.deleteRecipe( recipe )"><span class="glyphicon glyphicon-remove"></span></button>
 									</td>
 								</tr>
@@ -45,8 +50,8 @@
 					</tr>
 					<tr>
 						<td colspan="2" class="itemCell notesCell yellowCell">
-							<strong>Instructions</strong><br />
-							{{recipe.instructions}}
+							<strong>{{recipe.instructions ? 'Instructions' : ''}}</strong><br />
+							<p class="notes-paragraph">{{recipe.instructions}}</p>
 						</td>
 					</tr>
 					<tr>
