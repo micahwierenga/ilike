@@ -6,6 +6,7 @@ let Toy = sequelize.import( './toy' );
 let Game = sequelize.import( './game' );
 let Snack = sequelize.import( './snack' );
 let Recipe = sequelize.import( './recipe' );
+let Lunch = sequelize.import( './lunch' );
 let Joke = sequelize.import( './joke' );
 
 module.exports.Sequelize = Sequelize;
@@ -15,5 +16,6 @@ module.exports.models = {
 	Game: Game,
 	Snack: Snack,
 	Recipe: Recipe,
+	Lunch: Lunch,
 	Joke: Joke
 }

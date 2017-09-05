@@ -12,5 +12,5 @@ app.use( function( req, res ) {
 });
 
 app.listen( process.env.PORT || 3000, function() {
-	console.log( 'ilike listening on localhost:3000' );
+	console.log( 'mlike listening on localhost:3000' );
 })

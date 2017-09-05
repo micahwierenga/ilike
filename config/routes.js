@@ -4,6 +4,7 @@ let toysController = require( '../controllers/toys.js' );
 let gamesController = require( '../controllers/games.js' );
 let snacksController = require( '../controllers/snacks.js' );
 let recipesController = require( '../controllers/recipes.js' );
+let lunchesController = require( '../controllers/lunches.js' );
 let jokesController = require( '../controllers/jokes.js' );
 
 // Toy routes
@@ -53,6 +54,18 @@ router.post( '/api/recipes', recipesController.create );
 router.put( '/api/recipes/:id', recipesController.update );
 
 router.delete( '/api/recipes/:id', recipesController.destroy );
+
+// Lunch routes
+
+router.get( '/api/lunches/:id', lunchesController.show );
+
+router.get( '/api/lunches', lunchesController.index );
+
+router.post( '/api/lunches', lunchesController.create );
+
+router.put( '/api/lunches/:id', lunchesController.update );
+
+router.delete( '/api/lunches/:id', lunchesController.destroy );
 
 // Joke routes
 

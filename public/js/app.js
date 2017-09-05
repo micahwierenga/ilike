@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('iLikeApp', ['ui.router'])
+angular.module('mLikeApp', ['ui.router'])
 	.config(function($stateProvider,$urlRouterProvider){
 
     $stateProvider
@@ -42,6 +42,12 @@ angular.module('iLikeApp', ['ui.router'])
 			controller: 'RecipeIndexController as recipes'
 		})
 
+		.state( 'lunches', {
+			url: '/lunches',
+			templateUrl: '/templates/lunches.html',
+			controller: 'LunchIndexController as lunches'
+		})
+
 		.state( 'jokes', {
 			url: '/jokes',
 			templateUrl: '/templates/jokes.html',
@@ -72,6 +78,12 @@ angular.module('iLikeApp', ['ui.router'])
 			controller: 'RecipeUpdateController as updateRecipe'
 		})
 
+		.state( 'update-lunch', {
+			url: '/lunches/:id',
+			templateUrl: '/templates/forms/update-lunch.html',
+			controller: 'LunchUpdateController as updateLunch'
+		})
+
 		.state( 'update-joke', {
 			url: '/jokes/:id',
 			templateUrl: '/templates/forms/update-joke.html',
@@ -100,6 +112,12 @@ angular.module('iLikeApp', ['ui.router'])
 			url: '/new-recipe',
 			templateUrl: '/templates/forms/new-recipe.html',
 			controller: 'RecipeNewController as createRecipe'
+		})
+
+		.state( 'home.new-lunch', {
+			url: '/new-lunch',
+			templateUrl: '/templates/forms/new-lunch.html',
+			controller: 'LunchNewController as createLunch'
 		})
 
 		.state( 'home.new-joke', {

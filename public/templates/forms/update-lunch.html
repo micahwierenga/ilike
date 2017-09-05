@@ -1,0 +1,26 @@
+<h3 class="formTitle">Edit Lunch</h3>
+<form ng-submit="updateLunch.updateLunch()" class="margin-10-percent">
+  <div class="form-group">
+    <label for="selectedLunch-name">Name</label>
+    <input ng-model="updateLunch.selectedLunch.name" type="name" class="form-control" id="selectedLunch-name">
+  </div>
+  <div class="form-group">
+    <label for="selectedLunch-url">Link</label>
+    <input ng-model="updateLunch.selectedLunch.lunch_url" class="form-control" id="selectedLunch-url" placeholder="Enter url">
+  </div>
+  <div class="form-group">
+    <label for="selectedLunch-image">Image Link</label>
+    <input ng-model="updateLunch.selectedLunch.image_url" class="form-control" id="selectedLunch-image">
+  </div>
+  <!-- <div class="form-group">
+    <label for="selectedLunch-price">Price</label>
+    <input ng-model="updateLunch.selectedLunch.price" class="form-control" id="selectedLunch-price" placeholder="Enter price">
+  </div> -->
+  <div class="form-group">
+    <label for="selectedLunch-notes">Notes</label>
+    <textarea ng-model="updateLunch.selectedLunch.notes" class="form-control" id="selectedLunch-notes" rows="5"></textarea>
+  </div>
+ 
+  <button type="submit" class="btn btn-submit btn-right">Update Lunch</button>
+  <a ui-sref="lunches" class="btn btn-submit btn-right margin-right-10px" role="button">Cancel</a>
+</form>

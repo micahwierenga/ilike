@@ -1,4 +1,4 @@
-angular.module( 'iLikeApp' )
+angular.module( 'mLikeApp' )
 	.controller( 'SnackIndexController', SnackIndexController )
 	.controller( 'SnackNewController', SnackNewController )
 	.controller( 'SnackUpdateController', SnackUpdateController )

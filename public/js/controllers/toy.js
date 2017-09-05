@@ -1,4 +1,4 @@
-angular.module( 'iLikeApp' )
+angular.module( 'mLikeApp' )
 	.controller( 'ToyIndexController', ToyIndexController )
 	.controller( 'ToyNewController', ToyNewController )
 	.controller( 'ToyUpdateController', ToyUpdateController )

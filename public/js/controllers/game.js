@@ -1,4 +1,4 @@
-angular.module( 'iLikeApp' )
+angular.module( 'mLikeApp' )
 	.controller( 'GameIndexController', GameIndexController )
 	.controller( 'GameNewController', GameNewController )
 	.controller( 'GameUpdateController', GameUpdateController )

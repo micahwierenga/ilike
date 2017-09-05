@@ -1,4 +1,4 @@
-angular.module( 'iLikeApp' )
+angular.module( 'mLikeApp' )
 	.controller( 'RecipeIndexController', RecipeIndexController )
 	.controller( 'RecipeNewController', RecipeNewController )
 	.controller( 'RecipeUpdateController', RecipeUpdateController )

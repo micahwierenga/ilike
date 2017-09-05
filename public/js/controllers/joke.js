@@ -1,4 +1,4 @@
-angular.module( 'iLikeApp' )
+angular.module( 'mLikeApp' )
 	.controller( 'JokeIndexController', JokeIndexController )
 	.controller( 'JokeNewController', JokeNewController )
 	.controller( 'JokeUpdateController', JokeUpdateController )

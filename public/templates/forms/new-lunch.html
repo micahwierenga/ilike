@@ -1,0 +1,26 @@
+<h3 class="formTitle">New Lunch</h3>
+<form ng-submit="createLunch.create()" class="margin-10-percent">
+  <div class="form-group">
+    <label for="newLunch-name">Name</label>
+    <input ng-model="createLunch.newLunch.name" type="name" class="form-control" id="newLunch-name" placeholder="Enter name">
+  </div>
+  <div class="form-group">
+    <label for="newLunch-url">Link</label>
+    <input ng-model="createLunch.newLunch.lunch_url" class="form-control" id="newLunch-url" placeholder="Enter url">
+  </div>
+  <div class="form-group">
+    <label for="newLunch-image">Image Link</label>
+    <input ng-model="createLunch.newLunch.image_url" class="form-control" id="newLunch-image" placeholder="Enter image url">
+  </div>
+  <!-- <div class="form-group">
+    <label for="newLunch-price">Price</label>
+    <input ng-model="createLunch.newLunch.price" class="form-control" id="newLunch-price" placeholder="Enter price">
+  </div> -->
+  <div class="form-group">
+    <label for="newLunch-notes">Instructions</label>
+    <textarea ng-model="createLunch.newLunch.notes" class="form-control" id="newLunch-notes" rows="5" placeholder="Notes"></textarea>
+  </div>
+ 
+  <button type="submit" class="btn btn-submit btn-right">Create New Lunch</button>
+  <a ui-sref="lunches" class="btn btn-submit btn-right margin-right-10px" role="button">Cancel</a>
+</form>
