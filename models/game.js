@@ -10,7 +10,8 @@ module.exports = function( sequelize, Sequelize ) {
 		image_url: Sequelize.TEXT,
 		price: Sequelize.FLOAT,
 		notes: Sequelize.TEXT,
-		order: Sequelize.INTEGER
+		order: Sequelize.INTEGER,
+		owned: Sequelize.INTEGER
 	})
 	return model;
 }

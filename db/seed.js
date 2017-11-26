@@ -7,7 +7,8 @@ let toyList = [
         image_url: "https://images-na.ssl-images-amazon.com/images/I/715h2ET8wCL._SL1001_.jpg",
         price: null,
         notes: null,
-        order: 1
+        order: 1,
+        owned: 0
     },
     {
         name: "Nerf Modulus Regulator",
@@ -15,7 +16,8 @@ let toyList = [
         image_url: "https://images-na.ssl-images-amazon.com/images/I/71GXVB4OpXL._SL1500_.jpg",
         price: null,
         notes: "",
-        order: 2
+        order: 2,
+        owned: 0
     },
     {
         name: "AMOSTING Refill Darts 500PCS Bullet for Nerf N-Strike Elite Zombie Strike Rebelle - Blue",
@@ -23,7 +25,8 @@ let toyList = [
         image_url: "https://www.amazon.com/gp/aw/d/B01HTNSZ0M/ref=mp_s_a_1_2/144-5348048-3767716?ie=UTF8&qid=1504479947&sr=8-2-spons&pi=AC_SX236_SY340_QL65&keywords=nerf+darts&psc=1#immersive-view_1504480159645",
         price: null,
         notes: null,
-        order: 3
+        order: 3,
+        owned: 0
     },
     {
         name: "Mega Bloks Halo UNSC Kodiak Siege Cannon",
@@ -31,7 +34,8 @@ let toyList = [
         image_url: "https://images-na.ssl-images-amazon.com/images/I/81SEz120SYL._SL1500_.jpg",
         price: null,
         notes: "",
-        order: 4
+        order: 4,
+        owned: 0
     },
     {
         name: "Mega Bloks Halo Covenant Wraith Ambush",
@@ -39,7 +43,8 @@ let toyList = [
         image_url: "https://images-na.ssl-images-amazon.com/images/I/61aWxfflu%2BL._SL1000_.jpg",
         price: null,
         notes: null,
-        order: 5
+        order: 5,
+        owned: 0
     },
     {
         name: "Official Nerf N-Strike Elite Mega Series 10-Dart Refill Pack",
@@ -47,7 +52,8 @@ let toyList = [
         image_url: "https://www.amazon.com/Official-Nerf-N-Strike-10-Dart-Refill/dp/B00CXLQFYE#immersive-view_1504405352066",
         price: null,
         notes: null,
-        order: 6
+        order: 6,
+        owned: 0
     }
 ]
 
@@ -115,7 +121,8 @@ let gameList = [
         image_url: "https://images-na.ssl-images-amazon.com/images/I/91DWz5hvY0L._AC_SL1500_.jpg",
         price: null,
         notes: null,
-        order: 1
+        order: 1,
+        owned: 0
     },
     {
         name: "Mario Kart 8 Deluxe - Nintendo Switch",
@@ -123,7 +130,8 @@ let gameList = [
         image_url: "https://www.amazon.com/gp/aw/d/B01N1037CV/ref=mp_s_a_1_1/144-5348048-3767716?ie=UTF8&qid=1504480443&sr=8-1&pi=AC_SX236_SY340_QL65&keywords=mario+kart+8+deluxe+switch&dpPl=1&dpID=610a3DcyMpL&ref=plSrch#immersive-view_1504480527538",
         price: null,
         notes: null,
-        order: 2
+        order: 2,
+        owned: 0
     }
 ]
 

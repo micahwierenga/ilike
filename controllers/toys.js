@@ -2,7 +2,11 @@ let db = require( '../models' );
 let Toy = db.models.Toy;
 
 function index( req, res ) {
-	Toy.findAll( {order: '"order" ASC'} ).then( function( toys ) {
+	Toy.findAll( {
+		where: {
+			owned: 0
+		},
+		order: '"order" ASC'} ).then( function( toys ) {
 		res.json( toys );
 	});
 }
