@@ -12,7 +12,7 @@
 							<td class="itemCell notesCell yellowCell">
 								<div class="jokeDiv">
 									<p class="centerText"><strong>{{joke.description ? 'Joke' : ''}}</strong></p>
-									<p class="notes-paragraph">{{joke.description | limitTo:190}}<span ng-if="joke.description.length > 200"><a data-toggle="modal" data-target="#itemModal-{{joke.id}}">...(See full joke)</a></span></p>
+									<p class="notes-paragraph">{{joke.description | limitTo:190}}<span ng-if="joke.description.length > 200">...<a data-toggle="modal" data-target="#itemModal-{{joke.id}}">(See full joke)</a></span></p>
 								</div>
 							</td>
 						</tr>
