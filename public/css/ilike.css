@@ -72,6 +72,9 @@ a {
 	background-color: rgb(221, 165, 11);
 	color: #003366;
 }
+.itemDiv {
+
+}
 table {
 	text-align: center;
 	background: #fff;
@@ -82,6 +85,9 @@ table {
 .itemTable, .itemCell {
 	border: 3px solid #003366 !important;
 }
+.itemCell {
+	vertical-align: middle;
+}
 .yellowCell {
 	background-color: rgb(221, 165, 11);
 	color: #003366;
@@ -89,18 +95,43 @@ table {
 .grayCell {
 	background-color: white;
 }
+.centerText {
+	text-align: center;
+}
+.titleCell {
+	height: 70px;
+	vertical-align: middle;
+}
 .itemName {
 	text-transform: uppercase;
+}
+.imageDiv {
+	height: 125px;
+}
+.imageSize {
+	/*width: 100%;*/
+	height: 125px;
 }
 .buttonTableCell {
 	width: 50px;
 	text-align: center;
 }
+.buttonTable {
+	margin: auto;
+}
 .buttonCell {
 	padding: 5px;
 }
-.itemOrder {
-	font-weight: 800;
+.btn-notes {
+	/*background-color: #FFF;*/
+	/*font-weight: 800;*/
+	font-size: 10px;
+	height: 34px;
+	/*color: #003366;*/
+}
+.btn-notes:hover {
+	/*background-color: #003366;*/
+	/*color: #FFF;*/
 }
 .btn-width {
 	width: 40px;
@@ -109,7 +140,7 @@ table {
 	text-align: left;
 }
 .notes-paragraph {
-	white-space: pre-line;
+	color: #003366;
 }
 .itemSeparatorCell {
 	background-color: #003366;
