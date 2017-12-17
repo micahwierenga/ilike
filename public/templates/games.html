@@ -1,69 +1,104 @@
-<div class="games">
-	<div class="container">
-		<div class="row margin-bottom-15px">
-			<h2 class="float-left">Games</h2>
-			<a ui-sref="home.new-game" class="btn btn-submit float-right margin-top-18px" role="button">Add New Game</a>
-		</div>
-		<div class="row">
-			<div class="col-sm-6 col-md-6 col-lg-3 itemDiv" ng-repeat="game in games.allGames">
-				<table id="itemTable" class="table table-bordered itemTable">
-					<tbody>
-						<tr>
-							<td class="itemCell yellowCell titleCell">
-								<h5 class="itemName">
-									<a href="{{game.game_url}}" target="_blank">{{game.name | limitTo:50}}<span ng-if="game.name.length > 50">...</span></a>
-								</h5>
-							</td>
-						</tr>
-						<tr>
-							<td class="itemCell imageCell">
-								<div class="imageDiv">
-									<a href="{{game.game_url}}" target="_blank"><img class="imageSize" src="{{game.image_url}}"></a>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="itemCell grayCell buttonTableCell">
-								<table class="grayCell buttonTable">
-									<tr>
-										<td class="buttonCell">
-											<a ui-sref="update-game({id: game.id})" class="btn btn-success" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
-										</td>
-										<td class="buttonCell">
-											<button class="btn btn-primary btn-width" ng-click="games.moveGameUp( game )" ng-disabled="{{game.order}} == 1 ? true : false"><span class="glyphicon glyphicon-triangle-top"></span></button>
-										</td>
-										<td class="buttonCell">
-											<button type="button" class="btn btn-md btn-submit btn-notes" data-toggle="modal" data-target="#itemModal-{{game.id}}"><strong>Notes</strong></button>
-										</td>
-										<td class="buttonCell">
-											<button class="btn btn-primary btn-width" ng-click="games.moveGameDown( game )" ng-disabled="{{game.order}} == {{games.allGames.length}} ? true : false"><span class="glyphicon glyphicon-triangle-bottom"></span></button>
-										</td>
-										<td class="buttonCell">
-											<button class="btn btn-danger btn-width" ng-click="games.deleteGame( game )"><span class="glyphicon glyphicon-remove"></span></button>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<div class="modal fade" id="itemModal-{{game.id}}" role="dialog">
-				    <div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Notes</h4>
-							</div>
-							<div class="modal-body notes-paragraph">
-								<p>{{game.notes ? game.notes : 'No notes'}}</p>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>		
-		</div>
+<script>
+	$( function() {
+		$( "#sortable" ).sortable({
+			update: function( event, ui ) {
+				reorderGames();
+			}
+		});
+		$( "#sortable" ).disableSelection();
+	} );
+
+	function reorderGames(event, ui){
+		let idArray = [];
+		$(".ui-state-default").each(function( e, ui ){
+	        let li = $( ui ).find( 'li' );
+	        let id = li['prevObject'][0].attributes['id'].value;
+	        idArray.push( id );
+	    });
+        idArray.forEach( function ( id, index ) {
+        	let orderNum = index + 1;
+			$.ajax('/api/games/' + id, {
+				method: 'PUT',
+				contentType: 'application/json',
+				processData: false,
+				data: JSON.stringify({
+					order: orderNum
+				})
+			})
+			.then(
+				function success( data ) {
+
+				}
+			);
+        })
+    }
+</script>
+
+<div class="row margin-bottom-15px titleContainerDiv">
+	<div class="titleDiv">Games</div>
+	<div class="addNewButtonDiv">
+		<a ui-sref="home.new-game" class="btn btn-submit margin-top-18px" role="button">Add New Game</a>
 	</div>
 </div>
+
+<ul id="sortable" class="noBullets">
+	<li id="{{game.id}}" class="ui-state-default col-sm-6 col-md-6 col-lg-3" ng-repeat="game in games.allGames">
+		<table id="itemTable" class="table table-bordered itemTable">
+			<tbody>
+				<tr>
+					<td class="itemCell yellowCell titleCell">
+						<h5 class="itemName">
+							<a href="{{game.game_url}}" target="_blank">{{game.name | limitTo:50}}<span ng-if="game.name.length > 50">...</span></a>
+						</h5>
+					</td>
+				</tr>
+				<tr>
+					<td class="itemCell imageCell">
+						<div class="imageDiv">
+							<a href="{{game.game_url}}" target="_blank"><img class="imageSize" src="{{game.image_url}}"></a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="itemCell grayCell buttonTableCell">
+						<table class="grayCell buttonTable">
+							<tr>
+								<td class="buttonCell">
+									<a ui-sref="update-game({id: game.id})" class="btn btn-success" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
+								</td>
+								<td class="buttonCell">
+									<button class="btn btn-primary btn-width" ng-click="games.moveGameUp( game )" ng-disabled="{{game.order}} == 1 ? true : false"><span class="glyphicon glyphicon-triangle-top"></span></button>
+								</td>
+								<td class="buttonCell">
+									<button type="button" class="btn btn-md btn-submit btn-notes" data-toggle="modal" data-target="#itemModal-{{game.id}}"><strong>Notes</strong></button>
+								</td>
+								<td class="buttonCell">
+									<button class="btn btn-primary btn-width" ng-click="games.moveGameDown( game )" ng-disabled="{{game.order}} == {{games.allGames.length}} ? true : false"><span class="glyphicon glyphicon-triangle-bottom"></span></button>
+								</td>
+								<td class="buttonCell">
+									<button class="btn btn-danger btn-width" ng-click="games.deleteGame( game )"><span class="glyphicon glyphicon-remove"></span></button>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="modal fade" id="itemModal-{{game.id}}" role="dialog">
+		    <div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Notes</h4>
+					</div>
+					<div class="modal-body notes-paragraph">
+						<p>{{game.notes ? game.notes : 'No notes'}}</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</li>
+</ul>

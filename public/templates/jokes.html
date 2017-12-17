@@ -1,60 +1,95 @@
-<div class="jokes">
-	<div class="container">
-		<div class="row margin-bottom-15px">
-			<h2 class="float-left">Jokes</h2>
-			<a ui-sref="home.new-joke" class="btn btn-submit float-right margin-top-18px" role="button">Add New Joke</a>
-		</div>
-		<div class="row">
-			<div class="col-sm-6 col-md-6 col-lg-3 itemDiv" ng-repeat="joke in jokes.allJokes">
-				<table id="itemTable" class="table table-bordered itemTable">
-					<tbody>
-						<tr>
-							<td class="itemCell notesCell yellowCell">
-								<div class="jokeDiv">
-									<p class="centerText"><strong>{{joke.description ? 'Joke' : ''}}</strong></p>
-									<p class="notes-paragraph">{{joke.description | limitTo:190}}<span ng-if="joke.description.length > 200">...<a data-toggle="modal" data-target="#itemModal-{{joke.id}}">(See full joke)</a></span></p>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="itemCell grayCell buttonTableCell">
-								<table class="grayCell buttonTable">
-									<tr>
-										<td class="buttonCell">
-											<a ui-sref="update-joke({id: joke.id})" class="btn btn-success" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
-										</td>
-										<td class="buttonCell">
-											<button class="btn btn-primary btn-width" ng-click="jokes.moveJokeUp( joke )" ng-disabled="{{joke.order}} == 1 ? true : false"><span class="glyphicon glyphicon-triangle-top"></span></button>
-										</td>
-										<td class="buttonCell">
-											<button class="btn btn-primary btn-width" ng-click="jokes.moveJokeDown( joke )" ng-disabled="{{joke.order}} == {{jokes.allJokes.length}} ? true : false"><span class="glyphicon glyphicon-triangle-bottom"></span></button>
-										</td>
-										<td class="buttonCell">
-											<button class="btn btn-danger btn-width" ng-click="jokes.deleteJoke( joke )"><span class="glyphicon glyphicon-remove"></span></button>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<div class="modal fade" id="itemModal-{{joke.id}}" role="dialog">
-				    <div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Full Joke</h4>
-							</div>
-							<div class="modal-body notes-paragraph">
-								<p>{{joke.description ? joke.description : 'No joke'}}</p>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>		
-		</div>
+<script>
+	$( function() {
+		$( "#sortable" ).sortable({
+			update: function( event, ui ) {
+				reorderJokes();
+			}
+		});
+		$( "#sortable" ).disableSelection();
+	} );
+
+	function reorderJokes(event, ui){
+		let idArray = [];
+		$(".ui-state-default").each(function( e, ui ){
+	        let li = $( ui ).find( 'li' );
+	        let id = li['prevObject'][0].attributes['id'].value;
+	        idArray.push( id );
+	    });
+        idArray.forEach( function ( id, index ) {
+        	let orderNum = index + 1;
+			$.ajax('/api/jokes/' + id, {
+				method: 'PUT',
+				contentType: 'application/json',
+				processData: false,
+				data: JSON.stringify({
+					order: orderNum
+				})
+			})
+			.then(
+				function success( data ) {
+
+				}
+			);
+        })
+    }
+</script>
+
+<div class="row margin-bottom-15px titleContainerDiv">
+	<div class="titleDiv">Jokes</div>
+	<div class="addNewButtonDiv">
+		<a ui-sref="home.new-joke" class="btn btn-submit margin-top-18px" role="button">Add New Joke</a>
 	</div>
 </div>
+
+<ul id="sortable" class="noBullets">
+	<li id="{{joke.id}}" class="ui-state-default col-sm-6 col-md-6 col-lg-3" ng-repeat="joke in jokes.allJokes">
+		<table id="itemTable" class="table table-bordered itemTable">
+			<tbody>
+				<tr>
+					<td class="itemCell notesCell yellowCell">
+						<div class="jokeDiv">
+							<p class="centerText"><strong>{{joke.description ? 'Joke' : ''}}</strong></p>
+							<p class="notes-paragraph">{{joke.description | limitTo:190}}<span ng-if="joke.description.length > 200">...<a data-toggle="modal" data-target="#itemModal-{{joke.id}}">(See full joke)</a></span></p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="itemCell grayCell buttonTableCell">
+						<table class="grayCell buttonTable">
+							<tr>
+								<td class="buttonCell">
+									<a ui-sref="update-joke({id: joke.id})" class="btn btn-success" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
+								</td>
+								<td class="buttonCell">
+									<button class="btn btn-primary btn-width" ng-click="jokes.moveJokeUp( joke )" ng-disabled="{{joke.order}} == 1 ? true : false"><span class="glyphicon glyphicon-triangle-top"></span></button>
+								</td>
+								<td class="buttonCell">
+									<button class="btn btn-primary btn-width" ng-click="jokes.moveJokeDown( joke )" ng-disabled="{{joke.order}} == {{jokes.allJokes.length}} ? true : false"><span class="glyphicon glyphicon-triangle-bottom"></span></button>
+								</td>
+								<td class="buttonCell">
+									<button class="btn btn-danger btn-width" ng-click="jokes.deleteJoke( joke )"><span class="glyphicon glyphicon-remove"></span></button>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="modal fade" id="itemModal-{{joke.id}}" role="dialog">
+		    <div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Full Joke</h4>
+					</div>
+					<div class="modal-body notes-paragraph">
+						<p>{{joke.description ? joke.description : 'No joke'}}</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</li>
+</ul>
