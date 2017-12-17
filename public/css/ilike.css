@@ -72,15 +72,15 @@ a {
 	background-color: rgb(221, 165, 11);
 	color: #003366;
 }
-.itemDiv {
-
-}
 table {
 	text-align: center;
 	background: #fff;
 	color: rgb(221, 165, 11);
 	vertical-align: middle;
     border-collapse: collapse;
+}
+.noBullets {
+	list-style: none;
 }
 .itemTable, .itemCell {
 	border: 3px solid #003366 !important;

@@ -10,6 +10,7 @@ function ToyIndexController( $http ) {
 	vm.getOneToy = getOneToy;
 	vm.moveToyUp = moveToyUp;
 	vm.moveToyDown = moveToyDown;
+	vm.reorderToys = reorderToys;
 
 	function getAllToys() {
 		$http.get( '/api/toys' )
@@ -107,6 +108,10 @@ function ToyIndexController( $http ) {
 		$http.put( '/api/toys/' + id, ascendingLowerToy )
 		.then( function( response ) {
 		})
+	}
+
+	function reorderToys( idArray ) {
+		console.log( idArray );
 	}
 
 }
