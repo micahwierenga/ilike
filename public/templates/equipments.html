@@ -2,13 +2,13 @@
 	$( function() {
 		$( "#sortable" ).sortable({
 			update: function( event, ui ) {
-				reorderToys();
+				reorderEquipments();
 			}
 		});
 		$( "#sortable" ).disableSelection();
 	} );
 
-	function reorderToys(event, ui){
+	function reorderEquipments(event, ui){
 		let idArray = [];
 		$(".ui-state-default").each(function( e, ui ){
 	        let li = $( ui ).find( 'li' );
@@ -17,7 +17,7 @@
 	    });
         idArray.forEach( function ( id, index ) {
         	let orderNum = index + 1;
-			$.ajax('/api/toys/' + id, {
+			$.ajax('/api/equipments/' + id, {
 				method: 'PUT',
 				contentType: 'application/json',
 				processData: false,
@@ -34,30 +34,28 @@
     }
 </script>
 
-<script>$('#sortable').draggable();</script>
-
 <div class="row margin-bottom-15px titleContainerDiv">
-	<div class="titleDiv">Toys</div>
+	<div class="titleDiv">Equipments</div>
 	<div class="addNewButtonDiv">
-		<a ui-sref="home.new-toy" class="btn btn-submit margin-top-18px" role="button">Add New Toy</a>
+		<a ui-sref="home.new-equipment" class="btn btn-submit margin-top-18px" role="button">Add New Equipment</a>
 	</div>
 </div>
 
 <ul id="sortable" class="noBullets">
-	<li id="{{toy.id}}" class="ui-state-default col-sm-6 col-md-6 col-lg-3" ng-repeat="toy in toys.allToys">
+	<li id="{{equipment.id}}" class="ui-state-default col-sm-6 col-md-6 col-lg-3" ng-repeat="equipment in equipments.allEquipments">
 		<table id="itemTable" class="table table-bordered itemTable">
 			<tbody>
 				<tr>
 					<td class="itemCell yellowCell titleCell">
 						<h5 class="itemName">
-							<a href="{{toy.toy_url}}" target="_blank">{{toy.name | limitTo:50}}<span ng-if="toy.name.length > 50">...</span></a>
+							<a href="{{equipment.equipment_url}}" target="_blank">{{equipment.name | limitTo:50}}<span ng-if="equipment.name.length > 50">...</span></a>
 						</h5>
 					</td>
 				</tr>
 				<tr>
 					<td class="itemCell imageCell">
 						<div class="imageDiv">
-							<a href="{{toy.toy_url}}" target="_blank"><img class="imageSize" src="{{toy.image_url}}"></a>
+							<a href="{{equipment.equipment_url}}" target="_blank"><img class="imageSize" src="{{equipment.image_url}}"></a>
 						</div>
 					</td>
 				</tr>
@@ -66,19 +64,19 @@
 						<table class="grayCell buttonTable">
 							<tr>
 								<td class="buttonCell">
-									<a ui-sref="update-toy({id: toy.id})" class="btn btn-success" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
+									<a ui-sref="update-equipment({id: equipment.id})" class="btn btn-success" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
 								</td>
 								<td class="buttonCell">
-									<button class="btn btn-primary btn-width" ng-click="toys.moveToyUp( toy )" ng-disabled="{{toy.order}} == 1 ? true : false"><span class="glyphicon glyphicon-triangle-top"></span></button>
+									<button class="btn btn-primary btn-width" ng-click="equipments.moveEquipmentUp( equipment )" ng-disabled="{{equipment.order}} == 1 ? true : false"><span class="glyphicon glyphicon-triangle-top"></span></button>
 								</td>
 								<td class="buttonCell">
-									<button type="button" class="btn btn-md btn-submit btn-notes" data-toggle="modal" data-target="#itemModal-{{toy.id}}"><strong>Notes</strong></button>
+									<button type="button" class="btn btn-md btn-submit btn-notes" data-toggle="modal" data-target="#itemModal-{{equipment.id}}"><strong>Notes</strong></button>
 								</td>
 								<td class="buttonCell">
-									<button class="btn btn-primary btn-width" ng-click="toys.moveToyDown( toy )" ng-disabled="{{toy.order}} == {{toys.allToys.length}} ? true : false"><span class="glyphicon glyphicon-triangle-bottom"></span></button>
+									<button class="btn btn-primary btn-width" ng-click="equipments.moveEquipmentDown( equipment )" ng-disabled="{{equipment.order}} == {{equipments.allEquipments.length}} ? true : false"><span class="glyphicon glyphicon-triangle-bottom"></span></button>
 								</td>
 								<td class="buttonCell">
-									<button class="btn btn-danger btn-width" ng-click="toys.deleteToy( toy )"><span class="glyphicon glyphicon-remove"></span></button>
+									<button class="btn btn-danger btn-width" ng-click="equipments.deleteEquipment( equipment )"><span class="glyphicon glyphicon-remove"></span></button>
 								</td>
 							</tr>
 						</table>
@@ -86,7 +84,7 @@
 				</tr>
 			</tbody>
 		</table>
-		<div class="modal fade" id="itemModal-{{toy.id}}" role="dialog">
+		<div class="modal fade" id="itemModal-{{equipment.id}}" role="dialog">
 		    <div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -94,7 +92,7 @@
 						<h4 class="modal-title">Notes</h4>
 					</div>
 					<div class="modal-body notes-paragraph">
-						<p>{{toy.notes ? toy.notes : 'No notes'}}</p>
+						<p>{{equipment.notes ? equipment.notes : 'No notes'}}</p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -1,0 +1,26 @@
+<h3 class="formTitle">New Equipment</h3>
+<form ng-submit="createEquipment.create()" class="margin-10-percent">
+  <div class="form-group">
+    <label for="newEquipment-name">Name</label>
+    <input ng-model="createEquipment.newEquipment.name" type="name" class="form-control" id="newEquipment-name" placeholder="Enter name">
+  </div>
+  <div class="form-group">
+    <label for="newEquipment-url">Link</label>
+    <input ng-model="createEquipment.newEquipment.equipment_url" class="form-control" id="newEquipment-url" placeholder="Enter url">
+  </div>
+  <div class="form-group">
+    <label for="newEquipment-image">Image</label>
+    <input ng-model="createEquipment.newEquipment.image_url" class="form-control" id="newEquipment-image" placeholder="Enter image url">
+  </div>
+  <!-- <div class="form-group">
+    <label for="newEquipment-price">Price</label>
+    <input ng-model="createEquipment.newEquipment.price" class="form-control" id="newEquipment-price" placeholder="Enter price">
+  </div> -->
+  <div class="form-group">
+    <label for="newEquipment-notes">Notes</label>
+    <textarea ng-model="createEquipment.newEquipment.notes" class="form-control" id="newEquipment-notes" rows="5" placeholder="Your thoughts"></textarea>
+  </div>
+ 
+  <button type="submit" class="btn btn-submit btn-right">Create New Equipment</button>
+  <a ui-sref="equipments" class="btn btn-submit btn-right margin-right-10px" role="button">Cancel</a>
+</form>

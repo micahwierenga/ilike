@@ -135,6 +135,27 @@ let gameList = [
     }
 ]
 
+let equipmentList = [
+    {
+        name: "AUSDOM 1080P Webcam,Widescreen Video Calling and Recording, Computer Camera,Desktop or Laptop Webcam",
+        equipment_url: "https://www.amazon.com/Widescreen-Calling-Recording-Computer-Desktop/dp/B01M642ZTC/ref=sr_1_1_sspa?s=musical-instruments&ie=UTF8&qid=1513545864&sr=1-1-spons&keywords=computer+camera&psc=1",
+        image_url: "https://images-na.ssl-images-amazon.com/images/I/61unTpAd0ML._SL1294_.jpg",
+        price: null,
+        notes: null,
+        order: 1,
+        owned: 0
+    },
+    {
+        name: "Shure KSM9/SL Dual-Pattern Condenser Handheld Vocal Microphone, Champagne",
+        equipment_url: "https://www.amazon.com/gp/product/B000G16L06/ref=ox_sc_sfl_title_18?ie=UTF8&psc=1&smid=A2MFLJLVAYUYZP",
+        image_url: "https://images-na.ssl-images-amazon.com/images/I/81gmcAYBFEL._SL1500_.jpg",
+        price: null,
+        notes: null,
+        order: 2,
+        owned: 0
+    }
+]
+
 let jokeList = [
 	{
         description: "A man with a wooden eye and a woman with a fake leg met and were immediately attracted to each other. Things began to get serious and he asked her, \"Would you like to make out?\" Excitedly, she exclaimed, \"Would I? Would I?\" Offended and disgusted, he replied, \"Peg leg! Peg leg!\"",
@@ -150,20 +171,24 @@ let toyCreate = function() {
 	return db.Toy.bulkCreate( toyList );
 }
 
+let gameCreate = function() {
+	return db.Game.bulkCreate( gameList );
+}
+
+let equipmentCreate = function() {
+    return db.Equipment.bulkCreate( equipmentList );
+}
+
 let snackCreate = function() {
-	return db.Snack.bulkCreate( snackList );
+    return db.Snack.bulkCreate( snackList );
 }
 
 let recipeCreate = function() {
-	return db.Recipe.bulkCreate( recipeList );
+    return db.Recipe.bulkCreate( recipeList );
 }
 
 let lunchCreate = function() {
-	return db.Lunch.bulkCreate( lunchList );
-}
-
-let gameCreate = function() {
-	return db.Game.bulkCreate( gameList );
+    return db.Lunch.bulkCreate( lunchList );
 }
 
 let jokeCreate = function() {
@@ -171,10 +196,11 @@ let jokeCreate = function() {
 }
 
 toyCreate()
+.then( gameCreate )
+.then( equipmentCreate )
 .then( snackCreate )
 .then( recipeCreate )
 .then( lunchCreate )
-.then( gameCreate )
 .then( jokeCreate )
 .then( function() {
 	process.exit();

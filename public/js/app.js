@@ -30,6 +30,12 @@ angular.module('mLikeApp', ['ui.router'])
 			controller: 'GameIndexController as games'
 		})
 
+		.state( 'equipments', {
+			url: '/equipments',
+			templateUrl: '/templates/equipments.html',
+			controller: 'EquipmentIndexController as equipments'
+		})
+
 		.state( 'snacks', {
 			url: '/snacks',
 			templateUrl: '/templates/snacks.html',
@@ -66,6 +72,12 @@ angular.module('mLikeApp', ['ui.router'])
 			controller: 'GameUpdateController as updateGame'
 		})
 
+		.state( 'update-equipment', {
+			url: '/equipments/:id',
+			templateUrl: '/templates/forms/update-equipment.html',
+			controller: 'EquipmentUpdateController as updateEquipment'
+		})
+
 		.state( 'update-snack', {
 			url: '/snacks/:id',
 			templateUrl: '/templates/forms/update-snack.html',
@@ -100,6 +112,12 @@ angular.module('mLikeApp', ['ui.router'])
 			url: '/new-game',
 			templateUrl: '/templates/forms/new-game.html',
 			controller: 'GameNewController as createGame'
+		})
+
+		.state( 'home.new-equipment', {
+			url: '/new-equipment',
+			templateUrl: '/templates/forms/new-equipment.html',
+			controller: 'EquipmentNewController as createEquipment'
 		})
 
 		.state( 'home.new-snack', {

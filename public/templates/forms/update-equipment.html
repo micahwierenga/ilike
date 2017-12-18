@@ -1,0 +1,26 @@
+<h3 class="formTitle">Edit Equipment</h3>
+<form ng-submit="updateEquipment.updateEquipment()" class="margin-10-percent">
+  <div class="form-group">
+    <label for="selectedEquipment-name">Name</label>
+    <input ng-model="updateEquipment.selectedEquipment.name" type="name" class="form-control" id="selectedEquipment-name">
+  </div>
+  <div class="form-group">
+    <label for="selectedEquipment-url">Link</label>
+    <input ng-model="updateEquipment.selectedEquipment.equipment_url" class="form-control" id="selectedEquipment-url">
+  </div>
+  <div class="form-group">
+    <label for="selectedEquipment-image">Image</label>
+    <input ng-model="updateEquipment.selectedEquipment.image_url" class="form-control" id="selectedEquipment-image">
+  </div>
+  <!-- <div class="form-group">
+    <label for="selectedEquipment-price">Price</label>
+    <input ng-model="updateEquipment.selectedEquipment.price" class="form-control" id="selectedEquipment-price" placeholder="Enter price">
+  </div> -->
+  <div class="form-group">
+    <label for="selectedEquipment-notes">Notes</label>
+    <textarea ng-model="updateEquipment.selectedEquipment.notes" class="form-control" id="selectedEquipment-notes" rows="5"></textarea>
+  </div>
+ 
+  <button type="submit" class="btn btn-submit btn-right">Update Equipment</button>
+  <a ui-sref="equipments" class="btn btn-submit btn-right margin-right-10px" role="button">Cancel</a>
+</form>

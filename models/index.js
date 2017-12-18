@@ -4,6 +4,7 @@ let sequelize = new Sequelize( process.env.DATABASE_URL || 'postgres://micahwier
 
 let Toy = sequelize.import( './toy' );
 let Game = sequelize.import( './game' );
+let Equipment = sequelize.import( './equipment' );
 let Snack = sequelize.import( './snack' );
 let Recipe = sequelize.import( './recipe' );
 let Lunch = sequelize.import( './lunch' );
@@ -14,6 +15,7 @@ module.exports.sequelize = sequelize;
 module.exports.models = {
 	Toy: Toy,
 	Game: Game,
+	Equipment: Equipment,
 	Snack: Snack,
 	Recipe: Recipe,
 	Lunch: Lunch,

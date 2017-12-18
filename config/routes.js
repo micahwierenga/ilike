@@ -2,6 +2,7 @@ let express = require( 'express' );
 let router = express.Router();
 let toysController = require( '../controllers/toys.js' );
 let gamesController = require( '../controllers/games.js' );
+let equipmentsController = require( '../controllers/equipments.js' );
 let snacksController = require( '../controllers/snacks.js' );
 let recipesController = require( '../controllers/recipes.js' );
 let lunchesController = require( '../controllers/lunches.js' );
@@ -30,6 +31,18 @@ router.post( '/api/games', gamesController.create );
 router.put( '/api/games/:id', gamesController.update );
 
 router.delete( '/api/games/:id', gamesController.destroy );
+
+// Equipment routes
+
+router.get( '/api/equipments/:id', equipmentsController.show );
+
+router.get( '/api/equipments', equipmentsController.index );
+
+router.post( '/api/equipments', equipmentsController.create );
+
+router.put( '/api/equipments/:id', equipmentsController.update );
+
+router.delete( '/api/equipments/:id', equipmentsController.destroy );
 
 // Snack routes
 
